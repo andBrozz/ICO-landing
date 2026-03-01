@@ -1,0 +1,19 @@
+/* Main CSS File */
+
+:root {
+  --primary-color: #ffb811;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 1900px;
+  margin: 0 auto;
+  background: url("../img/covermain.png") no-repeat center center fixed;
+  background-size: cover;
+}

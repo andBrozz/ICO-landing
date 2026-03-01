@@ -1,31 +1,22 @@
 <!doctype html>
 <html lang="uk">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Відомі джедаї</title>
-    <link rel="shortcut icon" href="#" type="image/x-icon" />
-    <script
-      src="https://unpkg.com/htmx.org@1.9.10"
-      integrity="sha384-D1Kt99CQMDuVetoL1lrYwg5t+9QdHe7NLX/SoJYkXDFfX37iInKRy5xLSi8nO7UC"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body>
-    <header class="header">
-      <h1>Відомі джедаї</h1>
-      <h2>Ван Кенобі</h2>
-      <img width="400" src="img/squid-game.jpg" alt="Гра кальмару" />
-      <h2>Ця робота</h2>
-      <img width="400" src="img/Mega-kruto.jpg" alt="Мега круто" />
 
-      <nav
+<head>
+  <meta charset="utf-8">
+  <title>ICO landing </title>
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/header.css">
+  <!-- Подключение htmx, если нужны частичные загрузки -->
+  <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+</head>
+
+<body>
+<section
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
-        data-hx-get="global.header-nav.partial.html"
-      ></nav>
-    </header>
-    <main class="main"></main>
-    <footer class="footer"></footer>
-  </body>
+        data-hx-get="index.header.partial.html"
+      ></section>
+</body>
+
 </html>

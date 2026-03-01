@@ -1,0 +1,72 @@
+/* Header Styles */
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  max-height: 100px;
+  padding: 15px;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  width: 100%;
+  color: var(--primary-color);
+  font-weight: 750;
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 15px;
+  position: relative;
+}
+
+/* dark gray strip under header (1200px wide) */
+header::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 45%;
+  transform: translateX(-45%);
+  width: 1200px;
+  height: 2px;
+  background-color: #555; /* dark saturated gray */
+}
+
+header .header-left {
+  margin-right: auto;
+}
+
+header .header-right {
+  margin-left: auto;
+}
+
+header a {
+  color: #888888 !important; /* gray color */
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+header a:hover {
+  opacity: 0.8;
+}
+
+/* navigation below header */
+.header-nav {
+  display: flex;
+  justify-content: flex-end;
+  background: transparent;
+  padding: 10px 0;
+  gap: 20px;
+}
+
+.header-nav a {
+  color: #fff;
+  padding: 5px 10px;
+  text-decoration: none;
+  display: block;
+}
+
+.header-nav a:hover {
+  text-decoration: underline;
+}
+
+.clearfix {
+  clear: both;
+}
