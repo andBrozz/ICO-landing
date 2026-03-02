@@ -1,0 +1,11 @@
+/* Body layout and base styles (moved from style.css) */
+body {
+  font-family: 'Poppins', sans-serif;
+  max-width: 1900px;
+  margin: 0 auto;
+  /* base background color when image isn't covering entire height */
+  background-color: transparent;
+  /* ensure the page has the requested length */
+  min-height: 12035px;
+  position: relative;
+}

@@ -1,0 +1,17 @@
+/* Page gradient that starts after the hero image */
+.page-gradient {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: var(--hero-height-mobile);
+  background: linear-gradient(180deg, #041028 0%, #2e3e61 50%, #041028 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+@media (min-width: 1200px) {
+  .page-gradient {
+    top: var(--hero-height-desktop);
+  }
+}

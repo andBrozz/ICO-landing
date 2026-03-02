@@ -6,7 +6,8 @@
   <title>ICO landing </title>
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/style.css">
-  <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/index.header.partial.css">
+    <link rel="stylesheet" href="css/index.banner.partial.css">
   <!-- Подключение htmx, если нужны частичные загрузки -->
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
 </head>
@@ -16,6 +17,11 @@
         data-hx-trigger="load"
         data-hx-swap="outerHTML"
         data-hx-get="index.header.partial.html"
+      ></section>
+      <section
+        data-hx-trigger="load"
+        data-hx-swap="outerHTML"
+        data-hx-get="index.banner.partial.html"
       ></section>
 </body>
 

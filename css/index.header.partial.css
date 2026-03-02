@@ -6,13 +6,12 @@ header {
   align-items: center;
   max-width: 1200px;
   max-height: 100px;
-  padding: 15px;
-  padding-bottom: 30px;
+  padding: 20px 15px 30px 15px;
   margin: 0 auto;
   width: 100%;
-  color: var(--primary-color);
+  color: var(--yellow);
   font-weight: 750;
-  font-family: 'Fira Sans', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
   font-size: 15px;
   position: relative;
 }
@@ -21,12 +20,12 @@ header {
 header::after {
   content: "";
   position: absolute;
-  bottom: -2px;
+  bottom: -1px;
   left: 45%;
   transform: translateX(-45%);
-  width: 1200px;
-  height: 2px;
-  background-color: #555; /* dark saturated gray */
+  width: 1170px;
+  height: 1px;
+  background-color: var(--grey);
 }
 
 header .header-left {
@@ -38,7 +37,7 @@ header .header-right {
 }
 
 header a {
-  color: #888888 !important; /* gray color */
+  color: var(--grey) !important;
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
@@ -50,21 +49,37 @@ header a:hover {
 /* navigation below header */
 .header-nav {
   display: flex;
+  align-items: center;
   justify-content: flex-end;
   background: transparent;
-  padding: 10px 0;
-  gap: 20px;
+  padding: 30px 0px;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-.header-nav a {
-  color: #fff;
-  padding: 5px 10px;
-  text-decoration: none;
+/* show only the logo in navigation; hide other anchors */
+.header-nav > a {
+  display: none;
+}
+
+.nav-logo img {
+  height: 40px;
+  max-width: 180px;
   display: block;
 }
 
-.header-nav a:hover {
-  text-decoration: underline;
+.nav-logo {
+  margin-right: auto;
+}
+
+.header-nav a {
+  color: var(--grey);
+  padding: 5px 5px;
+  text-decoration: none;
+  display: block;
+  font-weight: 750;
+
 }
 
 .clearfix {
