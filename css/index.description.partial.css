@@ -1,0 +1,142 @@
+.description-section {
+  max-width: 1520px;
+  margin: 0 auto;
+  margin-top: 600px;
+  padding: 20px 20px 100px 20px;
+  position: relative;
+  z-index: 3;
+}
+
+
+
+.description-content {
+  display: flex;
+  gap: 60px;
+  align-items: flex-start;
+}
+
+.description-left {
+    flex: 1 1 50%;
+  flex-direction: column;
+}
+
+.description-text {
+  text-align: left;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.description-image {
+    flex: 1 1 50%;
+    max-width: 100%;
+  align-self: flex-start;
+}
+
+#cryptoplanet {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#cryptoplanet {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#description-title {
+  font-size: 48px;
+  color: var(--white);
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+#description-title .dash {
+  color: var(--yellow);
+}
+#under-title-description {
+  font-size: 19px;
+  color: var(--lightgrey);
+  margin-bottom: 40px;
+  font-weight: 500;
+}
+
+.description-section p {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  color: var(--grey);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .description-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .description-text {
+    text-align: center;
+  }
+
+  #description-title {
+    font-size: 36px;
+  }
+
+  #under-title-description {
+    font-size: 16px;
+  }
+
+  .description-section p {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 1520px) {
+  .description-section {
+    padding: 100px 40px 0px 40px;
+  }
+
+  .description-content {
+    gap: 80px;
+  }
+
+  #description-title {
+    font-size: 56px;
+    margin-bottom: 40px;
+  }
+
+  #under-title-description {
+    font-size: 22px;
+  }
+
+  .description-section p {
+    font-size: 18px;
+  }
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 40px;
+  margin-top: 40px;
+}
+
+.feature-item {
+  position: relative;
+  padding: 0px 0px 0px 40px;
+  color: var(--white);
+  font-weight: 500;
+  border-radius: 6px;
+  text-align: left;
+   font-size: 15px;
+}
+
+.feature-item::before {
+  content: '\2192';
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--yellow);
+  font-size: 16px;
+}

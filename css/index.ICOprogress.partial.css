@@ -1,0 +1,148 @@
+.ico-progress-section {
+    max-width: 1520px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-sizing: border-box;
+}
+
+
+.ico-progress-inner {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.ico-progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.ico-progress-title {
+    font-size: 28px;
+    color: var(--white);
+    font-weight: 600;
+    text-align: left;
+}
+
+.ico-progress-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 10px 0;
+}
+
+.ico-progress-item {
+    flex: 0 0 auto;
+    text-align: center;
+    min-width: 160px;
+
+}
+
+@media (max-width: 768px) {
+    .ico-progress-row {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    .ico-progress-item {
+        min-width: 120px;
+        margin-bottom: 12px;
+    }
+
+    .ico-progress-title {
+        font-size: 22px;
+    }
+}
+
+
+.ico-progress-action {
+}
+
+
+.ico-progress-section h2 {
+    font-size: 36px;
+    font-weight: 900;
+    margin: 0px 0px 30px 0px;
+    color: var(--white);
+}
+
+.ico-progress-statistic-titles {
+    font-weight: 700;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: var(--blueviolet);
+}
+
+.ico-progress-statistic-values {
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--white);
+}
+
+.ico-progress-section h2 .dash {
+    color: var(--yellow);
+}
+
+button#CPR-btn {
+    display: inline-block;
+    margin: 0;
+    padding: 20px 50px;
+    background: linear-gradient(90deg, #fcdc4d 0%, #ff9900 100%);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 17.5px;
+    font-weight: bold;
+    color: #000;
+    transition: background 0.2s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s cubic-bezier(0.4, 0, 0.2, 1), transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#CPR-btn:hover {
+    background: linear-gradient(135deg, #4facfe 0%, #814af8 100%);
+    box-shadow: none;
+    color: var(--white);
+}
+
+.ico-progress-video {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-top: 30px;
+}
+
+.ico-progress-video-wrap {
+    position: relative;
+    display: inline-block;
+}
+
+.ico-progress-video-wrap::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 100px;
+    height: 100px;
+    background: var(--white);
+    border-radius: 50%;
+    pointer-events: none;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.ico-progress-triangle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 52px;
+    height: 52px;
+    z-index: 2;
+    pointer-events: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 80 80'><polygon points='22,15 62,40 22,65' fill='%23814af8' stroke='%23814af8' stroke-linejoin='round' stroke-linecap='round' stroke-width='6'/></svg>");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+}

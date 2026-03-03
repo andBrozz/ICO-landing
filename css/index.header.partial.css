@@ -1,4 +1,4 @@
-/* Header Styles */
+
 
 header {
   display: flex;
@@ -16,7 +16,7 @@ header {
   position: relative;
 }
 
-/* dark gray strip under header (1200px wide) */
+
 header::after {
   content: "";
   position: absolute;
@@ -46,7 +46,7 @@ header a:hover {
   opacity: 0.8;
 }
 
-/* navigation below header */
+
 .header-nav {
   display: flex;
   align-items: center;
@@ -58,7 +58,7 @@ header a:hover {
   font-family: 'Ubuntu', sans-serif;
 }
 
-/* show only the logo in navigation; hide other anchors */
+
 .header-nav > a {
   display: none;
 }

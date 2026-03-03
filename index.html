@@ -4,25 +4,27 @@
 <head>
   <meta charset="utf-8">
   <title>ICO landing </title>
-  <!-- Stylesheets -->
+
   <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/index.header.partial.css">
-    <link rel="stylesheet" href="css/index.banner.partial.css">
-  <!-- Подключение htmx, если нужны частичные загрузки -->
+  <link rel="stylesheet" href="css/index.header.partial.css">
+  <link rel="stylesheet" href="css/index.banner.partial.css">
+  <link rel="stylesheet" href="css/index.description.partial.css">
+  <link rel="stylesheet" href="css/carousel.partial.css">
+  <link rel="stylesheet" href="css/index.ICOprogress.partial.css">
+
   <script src="https://unpkg.com/htmx.org@1.9.10"></script>
+
+  <script src="js/carousel.js"></script>
 </head>
 
 <body>
-<section
-        data-hx-trigger="load"
-        data-hx-swap="outerHTML"
-        data-hx-get="index.header.partial.html"
-      ></section>
-      <section
-        data-hx-trigger="load"
-        data-hx-swap="outerHTML"
-        data-hx-get="index.banner.partial.html"
-      ></section>
+  <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.header.partial.html"></section>
+  <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.banner.partial.html"></section>
+  <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.description.partial.html"></section>
+  <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="carousel.partial.html"></section>
+  <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.ICOprogress.partial.html"></section>
+  <section data-hx-trigger="load" data-hx-swap="outerHTML" data-hx-get="index.benefits.partial.html"></section>
+
 </body>
 
 </html>

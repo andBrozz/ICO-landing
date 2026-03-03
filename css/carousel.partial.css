@@ -1,0 +1,163 @@
+
+.carousel-section {
+  padding: 60px 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.carousel-wrapper {
+  flex: 1;
+  overflow: hidden;
+  border-radius: 12px;
+  padding: 20px 0;
+}
+
+.carousel-inner {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: transform;
+  width: 100%;
+}
+
+.carousel-slide {
+  flex: 0 0 calc(25% - 15px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  background-color: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 184, 17, 0.15);
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.carousel-slide img {
+  max-width: 90%;
+  max-height: 120px;
+  object-fit: contain;
+  filter: brightness(0.9) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.carousel-slide img:hover {
+  filter: brightness(1) contrast(1.1);
+}
+
+
+.carousel-prev,
+.carousel-next {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border: 2px solid var(--yellow);
+  background-color: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  flex-shrink: 0;
+  padding: 0;
+  color: var(--yellow);
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background-color: var(--yellow);
+  color: var(--background);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(255, 184, 17, 0.3);
+}
+
+.carousel-prev:active,
+.carousel-next:active {
+  transform: scale(0.95);
+}
+
+.carousel-prev:disabled,
+.carousel-next:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.carousel-prev svg,
+.carousel-next svg {
+  color: inherit;
+  stroke: currentColor;
+}
+
+
+@media (max-width: 768px) {
+  .carousel-section {
+    padding: 40px 15px;
+  }
+  
+  .carousel-container {
+    gap: 12px;
+  }
+  
+  .carousel-prev,
+  .carousel-next {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .carousel-wrapper {
+    padding: 20px 15px;
+  }
+  
+  .carousel-slide {
+    min-height: 100px;
+  }
+  
+  .carousel-slide img {
+    max-height: 100px;
+  }
+}
+
+@media (max-width: 480px) {
+  .carousel-section {
+    padding: 30px 10px;
+  }
+  
+  .carousel-container {
+    gap: 8px;
+  }
+  
+  .carousel-prev,
+  .carousel-next {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .carousel-prev svg,
+  .carousel-next svg {
+    width: 18px;
+    height: 18px;
+  }
+  
+  .carousel-wrapper {
+    padding: 15px 10px;
+  }
+  
+  .carousel-slide {
+    min-height: 80px;
+  }
+  
+  .carousel-slide img {
+    max-height: 80px;
+  }
+}
