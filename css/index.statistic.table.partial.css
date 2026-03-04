@@ -1,0 +1,69 @@
+.statistic-table-section {
+  display: flex;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.statistic-table {
+  width: 1130px;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.statistic-table thead {
+  background: linear-gradient(90deg, #6160C6 0%, #B859D0 100%);
+}
+
+.statistic-table thead .header-row {
+  height: 60px;
+}
+
+.statistic-table thead th {
+  padding: 20px;
+  text-align: left;
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  border: none;
+  width: 33.33%;
+}
+
+.statistic-table tbody tr {
+  height: 50px;
+  border: none;
+}
+
+.statistic-table tbody tr:nth-child(odd) {
+  background-color: #262838;
+}
+
+.statistic-table tbody tr:nth-child(even) {
+  background-color: #232533;
+}
+
+.statistic-table tbody td {
+  padding: 15px 20px;
+  text-align: left;
+  font-size: 17px;
+  color: #e0e0e0;
+  border: none;
+  width: 33.33%;
+}
+
+.statistic-type-name {
+  font-weight: 800;
+  font-size: 17px;
+}
+
+.statistic-issue {
+  color: var(--lightgrey) !important;
+  font-weight: 700;
+  font-size: 17px;
+}
+
+.statistic-tokens {
+  color: var(--moneygreen) !important;
+  font-weight: 600;
+  font-size: 17px;
+}
