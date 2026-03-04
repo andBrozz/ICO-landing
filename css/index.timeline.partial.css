@@ -1,0 +1,267 @@
+.timeline-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 60px 20px;
+    box-sizing: border-box;
+}
+
+.timeline-main-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin: 0 0 60px 0;
+    flex: 0 0 40%;
+}
+
+@media (max-width: 1000px) {
+    .timeline-main-title {
+        display: block;
+        margin-bottom: 30px;
+        flex: none;
+    }
+    .timeline-main-title .timeline-title {
+        margin-bottom: 8px;
+    }
+}
+
+.timeline-title {
+    font-size: 36px;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.timeline-title .title-accent {
+    color: var(--yellow);
+    display: inline-block;
+    margin-right: 8px;
+}
+
+.timeline-subtitle {
+    font-size: 18px;
+    color: var(--lightgrey);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+     text-align: right;
+}
+
+/* Вертикальна часова дорожка */
+.timeline-vertical {
+    position: relative;
+    padding: 40px 0;
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Центральна лінія */
+.timeline-vertical::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: calc(100% - 320px);
+    background: var(--white);
+    top: 60px;
+    z-index: 1;
+}
+
+/* Елемент часової дорожки */
+.timeline-item {
+    display: flex;
+    margin-bottom: 50px;
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: 0 20px;
+}
+
+/* Лівий елемент */
+.timeline-left {
+    justify-content: flex-end;
+}
+
+/* Правий елемент */
+.timeline-right {
+    justify-content: flex-start;
+}
+
+/* Кружочок з номером */
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #5f65d4 0%, #a366e8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--white);
+    top: 0px;
+    z-index: 10;
+    box-shadow: 0 0 20px rgba(127, 132, 221, 0.5);
+}
+
+/* Нумерація кружочків */
+.timeline-item:nth-child(1)::before { 
+    content: '1'; 
+    background: var(--yellow) !important;
+    box-shadow: 0 0 20px rgba(255, 184, 17, 0.6) !important;
+}
+.timeline-item:nth-child(2)::before { content: '2'; }
+.timeline-item:nth-child(3)::before { content: '3'; }
+.timeline-item:nth-child(4)::before { content: '4'; }
+.timeline-item:nth-child(5)::before { content: '5'; }
+.timeline-item:nth-child(6)::before { content: '6'; }
+.timeline-item:nth-child(7)::before { content: '7'; }
+
+/* Контент */
+.timeline-content {
+    width: calc(50% - 60px);
+    background: rgba(127, 132, 221, 0.1);
+    padding: 25px;
+    border-radius: 12px;
+    border-left: 3px solid var(--blueviolet);
+    transition: all 0.3s ease;
+}
+
+.timeline-content:hover {
+    background: rgba(127, 132, 221, 0.15);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(127, 132, 221, 0.2);
+}
+
+.timeline-left .timeline-content {
+    text-align: right;
+    border-left: none;
+    border-right: 3px solid var(--blueviolet);
+    margin-right: 10px;
+}
+
+.timeline-right .timeline-content {
+    text-align: left;
+    border-left: 3px solid var(--blueviolet);
+    margin-left: 10px;
+}
+
+.timeline-content h4 {
+    font-size: 14px;
+    color: var(--yellow);
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.timeline-content h3 {
+    font-size: 22px;
+    color: var(--white);
+    font-weight: 700;
+    margin-bottom: 12px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.timeline-content p {
+    font-size: 15px;
+    color: var(--lightgrey);
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Мобільна версія */
+@media (max-width: 768px) {
+    .timeline-vertical::before {
+        left: 20px;
+    }
+
+    .timeline-item {
+        padding: 0;
+        margin-bottom: 60px;
+        justify-content: flex-start !important;
+    }
+
+    .timeline-item::before {
+        left: 20px;
+        width: 50px;
+        height: 40px;
+        font-size: 18px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 100px);
+        margin-left: 70px !important;
+        text-align: left !important;
+        border-left: 3px solid var(--blueviolet) !important;
+        border-right: none !important;
+    }
+
+    .timeline-title {
+        font-size: 26px;
+    }
+
+    .timeline-subtitle {
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .timeline-section {
+        padding: 40px 15px;
+    }
+
+    .timeline-main-title {
+        margin-bottom: 40px;
+    }
+
+    .timeline-title {
+        font-size: 20px;
+    }
+
+    .timeline-subtitle {
+        font-size: 12px;
+    }
+
+    .timeline-item {
+        margin-bottom: 50px;
+    }
+
+    .timeline-item::before {
+        left: 15px;
+        width: 50px;
+        height: 50px;
+        font-size: 16px;
+    }
+
+    .timeline-vertical::before {
+        left: 40px;
+    }
+
+    .timeline-content {
+        width: calc(100% - 80px);
+        margin-left: 60px !important;
+        padding: 20px;
+        font-size: 14px;
+    }
+
+    .timeline-content h3 {
+        font-size: 18px;
+    }
+
+    .timeline-content h4 {
+        font-size: 12px;
+    }
+
+    .timeline-content p {
+        font-size: 13px;
+    }
+}

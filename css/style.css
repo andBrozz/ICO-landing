@@ -76,3 +76,27 @@ body, h1, h2, h3, h4, h5, h6, p, a, span, div {
     max-height: var(--hero-height-desktop);
   }
 }
+
+/* Равные отступы слева и справа для всей страницы */
+body {
+  padding: 0 175px;
+}
+
+/* ограничение ширины всех секций */
+body > section {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1024px) {
+  body > section {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  body {
+    padding: 0 20px;
+  }
+}

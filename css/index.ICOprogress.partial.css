@@ -1,5 +1,5 @@
 .ico-progress-section {
-    max-width: 1520px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 40px 20px;
     box-sizing: border-box;
@@ -57,11 +57,6 @@
     }
 }
 
-
-.ico-progress-action {
-}
-
-
 .ico-progress-section h2 {
     font-size: 36px;
     font-weight: 900;
@@ -107,15 +102,15 @@ button#CPR-btn {
 }
 
 .ico-progress-video {
-    width: 100%;
-    height: auto;
+    max-width: 1170px;
     border-radius: 8px;
-    margin-top: 30px;
+    margin: 30px auto 0;
 }
 
 .ico-progress-video-wrap {
     position: relative;
-    display: inline-block;
+    display: block;
+    text-align: center;
 }
 
 .ico-progress-video-wrap::after {
