@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Carousel</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #1a1a2e;
+            padding: 40px 20px;
+            font-family: 'Fira Sans', sans-serif;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .carousel-features-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            justify-content: center;
+            max-width: 1200px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .carousel-features {
+            display: flex;
+            gap: 15px;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            width: calc(3 * 360px + 2 * 15px);
+            scroll-snap-type: x mandatory;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            flex-shrink: 0;
+        }
+
+        .carousel-features::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-block {
+            background: url('img/card.svg') no-repeat center / cover;
+            padding: 30px 15px;
+            border-radius: 0;
+            width: 360px;
+            height: 240px;
+            flex-shrink: 0;
+            scroll-snap-align: start;
+            border: 1px solid #3a3a40;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .carousel-title {
+            font-size: 20px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 15px;
+        }
+
+        .carousel-text {
+            font-size: 14px;
+            color: #e0e0e0;
+            line-height: 1.6;
+        }
+
+        .carousel-btn {
+            background: none;
+            border: none;
+            font-size: 32px;
+            color: #ffffff;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.3s ease;
+            width: 40px;
+            height: 40px;
+            flex-shrink: 0;
+        }
+
+        .carousel-btn:hover {
+            color: #ffb811;
+        }
+    </style>
+</head>
+<body>
+    <h1>Тест Карусели</h1>
+    <p style="text-align: center; color: #99a; margin-bottom: 20px;">Проверить прокрутку карусели - должно быть видно ровно 3 блока</p>
+    
+    <section class="features-section">
+        <div class="carousel-features-container">
+            <button class="carousel-btn carousel-btn-prev">&lt;</button>
+            <div class="carousel-features">
+                <div class="carousel-block">
+                  <div class="carousel-content">
+                    <h4 class="carousel-title">Block 1 - Zero Fees</h4>
+                    <p class="carousel-text">Yes, the fee is really zero! In addition, we work with the best trading platforms
+                      and offer the best rate in the market. </p>
+                  </div>
+                </div>
+                <div class="carousel-block">
+                  <div class="carousel-content">
+                    <h4 class="carousel-title">Block 2 - Crypto to Flat</h4>
+                    <p class="carousel-text">Thanks to our financial partners, you can use Visa or MasterCard to buy or sell
+                      cryptocurrencies on the platform. </p>
+                  </div>
+                </div>
+                <div class="carousel-block">
+                  <div class="carousel-content">
+                    <h4 class="carousel-title">Block 3 - Oracle</h4>
+                    <p class="carousel-text">We partner with Oracle iService for the implementation of cross-platform data
+                      services within blockchain and off-chain.</p>
+                  </div>
+                </div>
+                <div class="carousel-block">
+                  <div class="carousel-content">
+                    <h4 class="carousel-title">Block 4 - NFT</h4>
+                    <p class="carousel-text">Cryptochange now supports the new trendy technology of NFT to achieve the
+                      digitization of any analog assets on blockchain.</p>
+                  </div>
+                </div>
+            </div>
+            <button class="carousel-btn carousel-btn-next">&gt;</button>
+        </div>
+    </section>
+
+    <script>
+        // Features Carousel with infinite scroll
+        function initFeaturesCarousel() {
+          console.log('Initializing carousel...');
+          // Знайти всі карусели на сторінці
+          const carousels = document.querySelectorAll('.carousel-features');
+          console.log('Found carousels:', carousels.length);
+          
+          carousels.forEach((carousel, index) => {
+            console.log('Processing carousel', index);
+            
+            // Пропустити, якщо вже ініціалізовано
+            if (carousel.dataset.carouselInitialized) {
+              console.log('Carousel already initialized');
+              return;
+            }
+            
+            // Знайти батьківський контейнер
+            const container = carousel.closest('.carousel-features-container');
+            if (!container) {
+              console.log('No container found');
+              return;
+            }
+            
+            const prevBtn = container.querySelector('.carousel-btn-prev');
+            const nextBtn = container.querySelector('.carousel-btn-next');
+            
+            console.log('Prev button:', !!prevBtn);
+            console.log('Next button:', !!nextBtn);
+            
+            if (!prevBtn || !nextBtn) return;
+            
+            // Отримати оригінальні блоки
+            const blocks = Array.from(carousel.querySelectorAll('.carousel-block'));
+            
+            if (blocks.length === 0) return;
+            
+            // Дублювати блоки для нескінченної прокрутки
+            blocks.forEach(block => {
+              const clonedBlock = block.cloneNode(true);
+              carousel.appendChild(clonedBlock);
+            });
+            
+            console.log('Blocks cloned:', blocks.length);
+            
+            // Обробник для кнопки попередня
+            prevBtn.addEventListener('click', function(e) {
+              console.log('Prev button clicked');
+              e.preventDefault();
+              carousel.scrollBy({ left: -(360 + 15), behavior: 'smooth' });
+              
+              // После плавної прокрутки перевірити позицію
+              setTimeout(() => {
+                checkAndResetScroll(carousel, blocks.length);
+              }, 500);
+            });
+            
+            // Обробник для кнопки наступна
+            nextBtn.addEventListener('click', function(e) {
+              console.log('Next button clicked');
+              e.preventDefault();
+              carousel.scrollBy({ left: 360 + 15, behavior: 'smooth' });
+              
+              // После плавної прокрутки перевірити позицію
+              setTimeout(() => {
+                checkAndResetScroll(carousel, blocks.length);
+              }, 500);
+            });
+            
+            // Обробник для події scroll для бесконечної прокрутки
+            carousel.addEventListener('scroll', () => {
+              checkAndResetScroll(carousel, blocks.length);
+            });
+            
+            // Позначити як ініціалізовану
+            carousel.dataset.carouselInitialized = 'true';
+            console.log('Carousel initialized');
+          });
+        }
+
+        // Функція для перевірки та скиду прокрутки при досягненні кінця
+        function checkAndResetScroll(carousel, originalBlocksCount) {
+          const blockWidth = 360 + 15; // ширина блока + gap
+          const totalWidth = carousel.scrollWidth;
+          const scrollPos = carousel.scrollLeft;
+          const containerWidth = carousel.clientWidth;
+          
+          console.log('Scroll check:', { scrollPos, containerWidth, totalWidth });
+          
+          // Якщо прокручуємо в кінець, повернутися на початок
+          if (scrollPos + containerWidth >= totalWidth - blockWidth) {
+            console.log('Resetting to start');
+            carousel.scrollLeft = 0;
+          }
+          // Якщо прокручуємо на початок (на негативне значення), перейти в кінець
+          else if (scrollPos <= blockWidth / 2) {
+            console.log('Jumping to end');
+            carousel.scrollLeft = carousel.scrollWidth - containerWidth - blockWidth;
+          }
+        }
+
+        // Ініціалізація при завантаженні сторінки
+        if (document.readyState === 'loading') {
+          document.addEventListener('DOMContentLoaded', initFeaturesCarousel);
+        } else {
+          // Якщо сторінка вже завантажена (при оновленні)
+          initFeaturesCarousel();
+        }
+    </script>
+</body>
+</html>

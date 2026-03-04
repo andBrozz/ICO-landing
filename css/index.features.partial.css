@@ -1,43 +1,63 @@
 .carousel-features-container {
   display: flex;
   align-items: center;
-  gap: 15px;
-  margin-top: 40px;
+  gap: 10px;
+  margin-top: 50px;
   justify-content: center;
 }
-
-.carousel-features {
-  scroll-snap-type: x mandatory;
-  overflow: hidden; /* prevent partial blocks */
-  width: calc(3 * 360px + 2 * 15px); /* exactly three blocks with gaps = 1110px */
-}
-
 .carousel-features {
   display: flex;
-  gap: 15px;
+  gap: 30px; /* increased gap between blocks */
   overflow-x: auto;
   scroll-behavior: smooth;
-  flex: 1;
-  padding: 0 15px;
+  width: calc(3 * 360px + 2 * 30px);
+  scroll-snap-type: x mandatory;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  flex-shrink: 0;
 }
 
 .carousel-features::-webkit-scrollbar {
   display: none;
 }
 
-.carousel-features {
-  -ms-overflow-style: none;
-  scrollbar-width: none;
-}
-
 .carousel-block {
+  position: relative;
   background-color: #232530;
-  padding: 30px 15px;
-  border-radius: 8px;
+  padding: 0; /* removed padding as requested */
+  border-radius: 0;
   width: 360px;
   height: 240px;
   flex-shrink: 0;
   scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* top gradient stripe: 20px height -> horizontal gradient green to blue */
+.carousel-block::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 20px;
+  background: linear-gradient(90deg, #17C89D 0%, #346BC0 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.carousel-block .carousel-content {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  z-index: 2;
 }
 
 .carousel-title {
@@ -63,9 +83,61 @@
   align-items: center;
   justify-content: center;
   transition: color 0.3s ease;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+
+/* accent for titles */
+.title-accent {
+  color: var(--yellow);
+}
+
+.carousel-btn:hover {
+  color: #ffb811;
 }
 
 .carousel-btn-prev,
 .carousel-btn-next {
   flex-shrink: 0;
+}
+
+.features-text-container {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.features-titile-container {
+  width: 75%;
+}
+
+.more-features-container {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.features-title {
+  font-size: 36px;
+  color: white;
+  padding-bottom: 15px;
+}
+
+.features,
+.text {
+  color: var(--lightgrey);
+}
+
+.more-features-text {
+  font-weight: 900;
+  font-size: 17px;
+  color: white;
+}
+
+.contact-us-text {
+  font-weight: 900;
+  font-size: 15px;
+  color: var(--blueviolet);
 }
