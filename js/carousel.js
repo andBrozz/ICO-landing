@@ -67,4 +67,3 @@ document.addEventListener('DOMContentLoaded', initCarousel);
 if (typeof htmx !== 'undefined') {
   document.addEventListener('htmx:afterSettle', initCarousel);
 }
-

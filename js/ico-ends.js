@@ -52,42 +52,54 @@ function initICOTimer() {
 
 // Counter animation functionality
 function initCounters() {
-    const counters = [
-        { id: 'counter1', finalValue: 1250000, prefix: '$', isCount: true },
-        { id: 'counter2', finalValue: 5000000, prefix: '', isCount: true },
-        { id: 'counter3', finalValue: 42, prefix: '', isCount: true },
-        { id: 'counter4', finalValue: 1250, prefix: '', isCount: true }
-    ];
+    // Get saved values from localStorage or use defaults
+    let worthValue = parseFloat(localStorage.getItem('worthValue')) || 1250000;
+    let btcValue = parseFloat(localStorage.getItem('btcValue')) || 42;
+    let ownersValue = parseFloat(localStorage.getItem('ownersValue')) || 1250;
     
-    counters.forEach(counter => {
-        let currentValue = 0;
-        const targetValue = counter.finalValue;
-        const element = document.getElementById(counter.id);
+    // Worth of tokens - infinite growth with random increments
+    const worthElement = document.getElementById('counter1');
+    const worthInterval = setInterval(() => {
+        const randomIncrement = Math.random() * 10000 + 5000; // 5000 to 15000
+        worthValue += randomIncrement;
+        worthElement.textContent = '$' + Math.floor(worthValue).toLocaleString();
+        localStorage.setItem('worthValue', worthValue.toString());
+    }, 1000);
+    
+    // Tokens - static value
+    const tokensElement = document.getElementById('counter2');
+    const staticTokensValue = 5000000;
+    tokensElement.textContent = staticTokensValue.toLocaleString();
+    
+    // BTC Raised - infinite growth with 0.7 increment, max is tokens count
+    const btcElement = document.getElementById('counter3');
+    const maxBTC = staticTokensValue; // Cannot exceed tokens count
+    const btcInterval = setInterval(() => {
+        const randomIncrement = Math.random() * 0.7; // 0 to +0.7
+        btcValue += randomIncrement;
         
-        // Random increment rate for each counter
-        const incrementRate = Math.ceil(targetValue / 100);
-        
-        function incrementCounter() {
-            const increment = Math.random() * incrementRate + 10;
-            currentValue += increment;
-            
-            if (currentValue >= targetValue) {
-                currentValue = targetValue;
-                clearInterval(interval);
-            }
-            
-            let displayValue;
-            if (counter.id === 'counter1') {
-                displayValue = '$' + Math.floor(currentValue).toLocaleString();
-            } else {
-                displayValue = Math.floor(currentValue).toLocaleString();
-            }
-            
-            element.textContent = displayValue;
+        // Ensure BTC doesn't exceed tokens
+        if (btcValue > maxBTC) {
+            btcValue = maxBTC;
         }
         
-        const interval = setInterval(incrementCounter, Math.random() * 100 + 50);
-    });
+        btcElement.textContent = btcValue.toFixed(2);
+        localStorage.setItem('btcValue', btcValue.toString());
+    }, 1000);
+    
+    // Owners - grows every second by 0.5 to 1.5
+    const ownersElement = document.getElementById('counter4');
+    const ownersInterval = setInterval(() => {
+        const randomIncrement = (Math.random() * 1) + 0.5; // 0.5 to 1.5
+        ownersValue += randomIncrement;
+        ownersElement.textContent = Math.floor(ownersValue);
+        localStorage.setItem('ownersValue', ownersValue.toString());
+    }, 1000);
+    
+    // Set initial values on page load
+    worthElement.textContent = '$' + Math.floor(worthValue).toLocaleString();
+    btcElement.textContent = btcValue.toFixed(2);
+    ownersElement.textContent = Math.floor(ownersValue);
 }
 
 // Initialize when DOM is ready
