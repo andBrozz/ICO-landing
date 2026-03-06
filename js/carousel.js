@@ -1,4 +1,5 @@
 // простой бесконечный слайдер, показывающий 4 элемента
+
 class LogoCarousel {
   constructor(selector) {
     this.el = document.querySelector(selector);
@@ -6,15 +7,22 @@ class LogoCarousel {
     this.inner = this.el.querySelector('.carousel-inner');
     this.prev = this.el.querySelector('.carousel-prev');
     this.next = this.el.querySelector('.carousel-next');
-    this.visible = 4;
+    this.setVisible();
     this.origCount = this.inner.children.length;
     this.current = this.visible; // позиция в учтённых клонах
-
     this.cloneItems();
     this.slides = this.inner.children;
     this.updateSizes();
     this.jump(this.current, false);
     this.bind();
+    window.addEventListener('resize', () => this.onResize());
+  }
+
+  setVisible() {
+    const w = window.innerWidth;
+    if (w <= 600) this.visible = 1;
+    else if (w <= 900) this.visible = 2;
+    else this.visible = 4;
   }
 
   cloneItems() {
@@ -28,7 +36,27 @@ class LogoCarousel {
   updateSizes() {
     const style = getComputedStyle(this.inner);
     this.gap = parseInt(style.gap) || 0;
-    this.w = this.slides[0].offsetWidth + this.gap;
+    // ширина одного слайда = ширина контейнера / visible
+    const container = this.el;
+    const containerWidth = container.offsetWidth;
+    this.w = Math.floor(containerWidth / this.visible) + this.gap;
+    for (let slide of this.slides) {
+      slide.style.minWidth = slide.style.maxWidth = `${Math.floor(containerWidth / this.visible)}px`;
+    }
+  }
+
+  onResize() {
+    // Пересоздать клоны и пересчитать размеры при изменении ширины
+    this.setVisible();
+    // Удалить все клоны
+    while (this.inner.children.length > this.origCount) {
+      this.inner.removeChild(this.inner.lastChild);
+      this.inner.removeChild(this.inner.firstChild);
+    }
+    this.cloneItems();
+    this.slides = this.inner.children;
+    this.updateSizes();
+    this.jump(this.visible, false);
   }
 
   bind() {
